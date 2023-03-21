@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2023 by anonymous (http://jsbin.com/ligodonequ/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="UTF=8">
+  <meta name="viewport"
+        content="width=device-width,
+                 initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+ 
+  <title>Travell</title>
+<style id="jsbin-css">
+* 
+    font-family: 'Cardo', serif;
+    font-family: 'Lato', sans-serif;
+ */
+ body {
+    background-color: #e9e7e7;
+    font-family: 'Lato', sans-serif;
+    color: #232323;
+    font-size: 17px;
+    margin: 0;
+}
+#wrapper {
+    max-width: 1420px;
+    margin: 0 auto;
+}
+h1, h2, h3, h4 {
+    font-family: 'Cardo', serif;
+}
+.wrap-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.nav-header {
+    padding: 0 112px;
+   /* display: inline-block;
+    display: flex;*/
+    
+} 
+a {
+    text-decoration: none;
+    color: #232323;
+}
+.nav-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-list li {
+   /* display: inline-block;*/
+    list-style-type: none;
+    font-size: 21px;
+    letter-spacing: -1px;
+    padding: 97px 20px 62px;
+}
+.nav-list li:first-child {
+    padding-left: 0;
+}
+.nav-list li:last-child {
+    padding-right: 0;
+}
+nav a {
+    text-decoration: none;
+}
+nav a:hover {
+    font-weight: 900;
+}
+.nav-form{
+  /*  float: right;*/
+}
+.button {
+    margin: 78px;
+    padding: 16px 58px;
+    font-size: 21px;
+    letter-spacing: -1px;
+    font-weight: 900;
+    border-radius: 5px;
+    border: 2px solid;
+    background-color: #e9e7e7;
+}
+.button:hover {
+    font-weight: 900;
+    color: #e9e7e7;
+    background-color: #232323;
+}
+#checkbox1,
+.toggle {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+    .toggle {
+        clear: both;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        line-height: 40px;
+        cursor: pointer;
+        width: 100%;
+        height: 40px;
+        color: #232323;
+        background: #e9e7e7;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: all .1s linear;
+      }
+      .toggle:hover {
+        background: #cecece;
+      }
+      #checkbox1:checked + label .nav-list li {
+        opacity: 1;
+        visibility: visible;
+        transition: all .7s linear;
+      }
+    
+      #checkbox1:checked + label .nav-list {
+        height: 200px;
+      }
+      .nav-list {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        transition: height .3s linear;
+      }
+      .nav-list li {
+        display: flex;
+        
+        padding: 0;
+        /* magic */
+        align-self: center;
+        visibility: hidden;
+      }
+      .nav-list li a {
+        width: 95%;
+        text-align: center;
+        align-self: center;
+        align-content: center;
+      
+    }
+    .button {
+        float: right;
+    }
+}
+    
+
+
+
+
+.header-wrapper {
+    display: inline-block;
+    padding: 0 112px;
+    margin: 0;
+    background-image: url(../images/scribble/header-wrapper-1.png), url(../images/scribble/header-wrapper-2.png);
+    background-position: -312px 135px, 1297px 287px;
+    background-repeat: no-repeat, no-repeat;
+   /* opacity: 0.200;*/
+}
+
+.top-header {
+    display: inline-block;
+    width: 428px;
+    margin: 0 102px 0 0;
+}
+h1 {
+    font-size: 82px;
+    letter-spacing: -2px;
+    font-weight: 700;
+    /*font-family: 'Cardo', serif;*/
+    line-height: 82px;
+    padding: 62px 0 24px 0;
+    margin: 0;
+}
+.top-header p {
+    font-size: 18px;
+    padding: 0 0 42px 0;
+    margin: 0;
+}
+.buttonTwo {
+    padding: 16px 54px;
+    margin: 0 0 150px 0;
+
+}
+.memort-wrapper {
+    padding: 0 112px;
+    background-color: #232323;
+    color:  #e9e7e7;  
+    text-align: center;
+    background-image: url(../images/scribble/memort-wrapper-1.png), url(../images/scribble/memort-wrapper-2.png);
+    background-position: -109px -199px, 803px -117px;
+    background-repeat: no-repeat;
+}
+.memory {
+    width: 438px;
+    display: inline-block;
+}
+.memory h2 {
+    font-size: 55px;
+    line-height: 55px;
+    letter-spacing: -1px;
+    font-weight: 700;
+   /* font-family: 'Cardo', serif;*/
+    margin-top: 54px;
+    margin-bottom: 34px;
+}
+.memory p {
+    margin : 34px 0 0 0;
+    letter-spacing: 0px;
+}
+.button-memory {
+    margin: 54px 78px;
+    border: 2px solid #e9e7e7;
+    border-radius: 5px;
+    background-color: #232323;
+    color: #e9e7e7;
+}
+.button-memory:hover {
+    color: #232323;
+    background-color: #e9e7e7;
+    border: 2px solid #232323;
+}
+.new-travels {
+    margin: 166px 0 0 0;
+    padding: 0 112px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*background-image: url(../images/vector.svg);*/
+    
+}
+.line {
+    width: 130px;
+    height: 3px;
+    background-color: #232323;
+    margin: 32px 0 30px 0;
+    
+}
+h4 {
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    margin: 0;
+   /* font-family: 'Cardo', serif;*/
+}
+
+.new-travels h4 {
+    width: 230px;
+}
+.new-travels figure {
+    margin: 0;
+    width: 340px;
+   /*float: left;*/
+}
+.new-travels >.two-figure {
+    padding: 0 59px ;
+}
+.airplane {
+    padding: 0 112px;
+   /* clear: both;*/
+    text-align: center;
+    margin-top: 0;
+   
+   /* background-image: url(/images/airplace.svg);
+    background-position: center top;
+    background-repeat: no-repeat;*/
+
+}
+.airplane > h3 {
+    font-size: 98px;
+    letter-spacing: -2px;
+    font-weight: 700;
+    /*font-family: 'Cardo', serif;*/
+    width: 745px;
+    margin: auto;
+    line-height: 1;
+   
+    }
+    .airplane p {
+        font-size: 25px;
+        letter-spacing: -1px;
+        font-weight: 900;  
+        padding: 112px 0 240px;
+       
+    }
+    .photo-travel figure {
+        width: 550px;
+        margin: 0;
+    }
+    .photo-travel div img {
+        padding-right: 43px;
+    }
+    .photo-travel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 112px;
+    }
+    .photo-travel > div{
+        margin: 0;
+        margin-bottom: 47px;
+    }
+    .photo-travel h4 {
+        width: 236px;
+        padding: 0;
+        margin: 0 20px 0 0;
+
+    }
+    .photo-travel-figcaption {
+        display: flex;
+        margin-top: 78px;
+    }
+    .photo-travel-figcaption p {
+        width: 310px;
+        text-justify:inter-cluster;
+    }
+    .photo-travel-figcaption a {
+    }
+   a > span {
+        color: #232323;
+        font-size: 78px;
+        margin-top: 132px;
+        margin-left: 186px;
+    }
+    .like-travel {
+        padding: 156px 0 0 112px;
+        background-color: #232323;
+        background-image: url(../images/scribble/like-travel.png);
+        background-position: -446px 325px;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .like-travel-1 {
+        padding:  0 100px 90px 0;
+        width: 456px;
+    }
+    .like-travel h3{
+        font-size: 55px;
+        letter-spacing: -1px;
+        line-height: 55px;
+        color: #e9e7e7;
+        font-weight: 700;
+        width: 456px;
+        margin: 0 109px 110px 0;
+        /*font-family: 'Cardo', serif;*/
+    }
+    
+    .like-travel h4 {
+        font-size: 25px;
+        letter-spacing: -1px;
+        color: #e9e7e7;
+        font-weight: 900;
+        font-family: 'Lato', sans-serif;
+        
+    }
+   
+    .like-travel p {
+        letter-spacing: 0px;
+        color: #e9e7e7;
+        text-align: left;
+        padding-bottom: 60px;
+        
+    }
+    .travel-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 180px;
+        padding: 0 112px;
+        /*надо доделать размер секции вверх*/
+        
+        
+    }
+    
+ /*travel-info start !!!!!!*/
+.travel-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 118px 112px;
+   
+}
+.travel-info-header {
+    max-width: 780px;
+    margin-bottom: 100px;
+    
+}
+.travel-info-header h3 {
+    margin: 0;
+    font-size: 76px;
+    letter-spacing: -2px;
+    line-height: 78px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.travel-info-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.travel-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 3px solid #232323;
+    max-width: 780px;
+
+}
+.travel-info-list:last-child {
+    border-bottom: 3px solid #232323;
+}
+.travel-info-label {
+    display: block;
+    cursor: pointer;
+    padding: 20px 100px 20px 40px;
+    font-weight: 700;
+    
+}
+.travel-info-input {
+    position: absolute;
+    appearance: none;
+    width: 0;
+    height: 0;
+    border: 0;
+}
+.travel-info-input:checked + .travel-info-text {
+    display: block;
+}
+.travel-info-text {
+    display: none;
+    font-size: 16px;
+    padding: 0 100px 20px 40px;
+}
+/*.travel-info-wrap {
+    display: flex;
+    
+    flex-wrap: wrap;
+}*/
+
+
+
+ /*travel-info end*/
+ /*travel-person start*/
+.travel-person {
+    padding: 0 112px;
+    
+
+}
+.travel-person > div {
+      display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+}
+.travel-person > h3 {
+    font-size: 81px;
+    letter-spacing: -2px;
+    line-height: 81px;
+    font-weight: 700;
+    font-family: "Cardo";
+    text-align: center;
+    max-width: 630px;
+}
+.travel-person-wrap {
+ 
+  
+}
+.travel-person-img {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    background-color: #232323;
+}
+
+@media (max-width:768px)and (max-width:1440px)
+
+
+</style>
+</head>
+<body>
+
+  
+  
+<div id="wrapper">
+  
+<header>
+  
+<div class="wrap-header">
+  
+<div class="nav-header">
+  
+                    <nav>
+                        <input type="checkbox" id="checkbox1" />
+  			            <label for="checkbox1">
+                            <ul class="nav-list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Guides</a></li>
+                                <li><a href="#">Flights</a></li>
+                                <li><a href="#">About</a></li>
+                            </ul>
+                            <span class="toggle">☰</span>
+                        </label>
+                    </nav>
+                </div>
+  
+<form class="nav-form" action="#"  method="get">
+<button type="button  buttonOne" class="button">Contact Us</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <div class="header-wrapper ">
+                <div class="top-header">
+                    <h1>Travel to your dream destination</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipi scing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Quis ipsum sus pendisse ultrices gravida. 
+                    </p>
+                    <button type="button" class="button buttonTwo">Reserve Ticket</button>
+               </div>
+              
+                
+              
+<img class="top-header-img"src="./images/p.jpg" alt="p" width="662" height="420px">
+            </div>
+            <div class="memort-wrapper">
+                <div class="memory">
+                    <h2>
+                        Create a memory to remember
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus pendisse ultrices gravida. 
+                    </p>
+                    <button class="button button-memory"  type="button">My Travel Logs</button>
+                </div>
+            </div>
+            <div class="wrapper-travels">
+                <div class="new-travels">
+                    <figure>
+                        <img src="./images/p1.jpg" alt="p1" width="320px" height="230px">
+                        <p class="line"></p>
+                        <figcaption>
+                            <a class="link-new-travels" href="#">
+                                <h4>
+                                    Lorem ipsum dolor sit amet
+                                </h4>
+                            </a>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus pendisse ultrices gravida. 
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure class="two-figure">
+                        <img src="./images/p2.jpg" alt="p2"  width="320px" height="230px">
+                        <p class="line"></p>
+                        <figcaption>
+                            <a href="#">
+                                <h4>
+                                    Lorem ipsum dolor sit amet
+                                </h4>
+                            </a>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus pendisse ultrices gravida. 
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./images/p3.jpg" alt="p3"  width="320px" height="230px">
+                        <p class="line"></p>
+                        <figcaption>
+                            <a href="">
+                                <h4>
+                                    Lorem ipsum dolor sit amet
+                                </h4>
+                            </a>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus pendisse ultrices gravida. 
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="airplane">
+                    <h3>
+                        See places you’ve never been before
+                    </h3>
+                    <p>
+                        Lorem Ipsum Dolor | Lorem Ipsum Dolor | Lorem Ipsum Dolor
+                    </p>
+                </div>
+                <div class="photo-travel">
+                    <div>
+                        <img src="./images/p-t1.jpg" alt="p-t1" width="564px" height="776px">
+                    </div>
+                    <div>
+                        <figure>
+                            <img src="./images/p-t2.jpg" alt="p-t2" width="418px" height="322px">
+                            <figcaption>
+                               <div class="photo-travel-figcaption">
+                                    <div>
+                                        <h4>
+                                            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do ei
+                                        </h4>
+                                    </div>
+                                     <div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. 
+                                        </p>
+                                        <a href=""><span>&#10230;</span></a>
+                                    </div>
+                               </div>
+                            </figcaption>
+                       </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="like-travel">
+                    <div class="like-travel-1">
+                        <h3>
+                            Choose anywhere you’d like to be
+                        </h3>   
+                        <h4>
+                            Lorem Ipsum dolor
+                        </h4>  
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse.
+                        </p>
+                        <h4>
+                            Lorem Ipsum dolor
+                        </h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse.
+                        </p>
+                    </div>
+                    <div class="like-travel-2"> 
+                        <img src="./images/l-t.jpg" alt="l-t" width="700px" height="562px">
+                    </div>
+             </div>
+             <div class="travel-info">
+                <div class="travel-info-wrap">
+                    <div>
+                        <div class="travel-info-header">
+                            <h3>
+                                Lorem ipsum dolor sit amet consectetur
+                            </h3>
+                        </div>
+                        <div class="travel-info-list">
+                            <label class="travel-info-label" for="travel-info-input-1">
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod
+                            </label>
+                            <input class="travel-info-input" type="checkbox" name="travel-input-1" id="travel-info-input-1">
+                            <div class="travel-info-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quibusdam vel impedit? Rem earum, 
+                                    a numquam perspiciatis maxime similique nam accusamus, et dicta aspernatur dolores ut porro sequi, asperiores nobis.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="travel-info-list">
+                            <label class="travel-info-label" for="travel-info-input-2">
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod
+                            </label>
+                            <input class="travel-info-input" type="checkbox" name="travel-input-2" id="travel-info-input-2">
+                            <div class="travel-info-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quibusdam vel impedit? Rem earum, 
+                                    a numquam perspiciatis maxime similique nam accusamus, et dicta aspernatur dolores ut porro sequi, asperiores nobis.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="travel-info-list">
+                            <label class="travel-info-label" for="travel-info-input-3">
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod
+                            </label>
+                            <input class="travel-info-input" type="checkbox" name="travel-input-3" id="travel-info-input-3">
+                            <div class="travel-info-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quibusdam vel impedit? Rem earum, 
+                                    a numquam perspiciatis maxime similique nam accusamus, et dicta aspernatur dolores ut porro sequi, asperiores nobis.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="travel-info-list">
+                            <label class="travel-info-label" for="travel-info-input-4">
+                                Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do ei usmod
+                            </label>
+                            <input class="travel-info-input" type="checkbox" name="travel-input-4" id="travel-info-input-4">
+                            <div class="travel-info-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quibusdam vel impedit? Rem earum, 
+                                    a numquam perspiciatis maxime similique nam accusamus, et dicta aspernatur dolores ut porro sequi, asperiores nobis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./images/t-i-f.png" alt="t-i-f" width="390px" height="516px">
+                    </div>
+                </div>
+            </div>
+            <div class="travel-person">
+                <h3>Here’s what they have to say...</h3>
+               <div>
+                    <div class="travel-person-wrap">
+                        <div class="travel-person-img">
+                            <img src="" alt="Person icon">
+                        </div>
+                        <div class="travel-person-text">
+                            <h4>Customer Name</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="travel-person-wrap">
+                        <div class="travel-person-img">
+                            <img src="" alt="Person icon">
+                        </div>
+                        <div class="travel-person-text">
+                            <h4>Customer Name</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="travel-person-wrap">
+                        <div class="travel-person-img">
+                            <img src="" alt="Person icon">
+                        </div>
+                        <div class="travel-person-text">
+                            <h4>Customer Name</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="travel-person-wrap">
+                        <div class="travel-person-img">
+                            <img src="" alt="Person icon">
+                        </div>
+                        <div class="travel-person-text">
+                            <h4>Customer Name</h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                            </p>
+                        </div>
+                    </div>
+               </div>
+               <!-- <figure>
+                    <img src="" alt="Person icon">
+                    <figcaption>
+                         <h4>Customer Name</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="" alt="Person icon">
+                    <figcaption>
+                        <h4>Customer Name</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ei usmod tempor incid idunt ut labore et dolore magna aliqua. 
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                        </p>
+                    </figcaption>
+                </figure>-->
+            </div>
+            <div class="travel-form">
+                <div class="travel-form-column">  
+                    <h3>Be updated!</h3>
+                    <br>
+                    <form action="" name="Be updated!" method="post">
+                        <p><input type="text" name="username" placeholder="First Name*" maxlength="15"></p>
+                        <p><input type="text" name="last-Name" placeholder="Last Name*" maxlength="15"></p>
+                        <p><input type="email" name="email" placeholder="Email Subject*" maxlength="15"></p>
+                        <p><textarea name="comments" placeholder="Write something here..." id="" cols="30" rows="5"></textarea></p>
+                        <p><button type="submit" class="travel-form-btn">Submit Email</button></p>
+                    </form>
+                </div>
+                <div class="travel-form-column">
+                    <img src="./images/t-f.jpg" alt="t-f" width="666px" height="730px">
+                </div>
+            </div>
+        </main> 
+        <footer>
+            <div class="footer-wrap">
+               <div class="footer">
+                    <div class="logo-footer-wrap">
+                        <div class="logo-footer">
+                            <a href="#">My Log Travels</a>
+                        </div>
+                    </div>
+                    
+                    <div class="quickLinks-wrap">
+                        <h3>Quick Links</h3>
+                        <div class="quickLinks">
+                            <!---->
+                            <div>
+                                <a href="">
+                                    Home
+                                </a>
+                                <a href="">
+                                    About Us 
+                                </a>
+                                <a href="">
+                                    My Travel Logs
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    Travels
+                                </a>
+                                <a href="">
+                                    Promo Flights
+                                </a>
+                                <a href="">
+                                    Travel Routes
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    Recommendations
+                                </a>
+                                <a href="">
+                                    Guides
+                                </a>
+                                <a href="">
+                                    Blogs
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    Mission Statement
+                                </a>
+                                <a href="">
+                                    The Team
+                                </a>
+                                <a href="">
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+              
+            </div>
+            <div class="bottom-footer">
+                <p>
+                    2021 - 2022 My Log Travels. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
